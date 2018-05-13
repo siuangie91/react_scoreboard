@@ -1,5 +1,7 @@
 # React Scoreboard with Redux Store 
 
+*This is part of a larger project for the iPad, and has been sized to meet this spec.*
+
 **Demo:** [http://projects.angiesiudevworks.com/reactscoreboard/](http://projects.angiesiudevworks.com/reactscoreboard/)
 
 Finds the 3 people/characters based on a set of chosen factors (Background path) or a chosen quote (Mindset path). 
