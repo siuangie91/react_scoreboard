@@ -18,6 +18,16 @@ body {
 	font-size: 25px;
 }
 
+footer {
+	text-align: center;
+}
+
+footer a, 
+footer a:hover,
+footer a:visited {
+	color: #cf0a2c;
+}
+
 /************* RESETTERS **************/
 #wrapper {
 	position: relative;
