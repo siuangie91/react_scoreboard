@@ -1,6 +1,6 @@
 # React Scoreboard with Redux Store 
 
-*This is part of a larger project for the iPad, and has been sized to meet this spec.*
+*This is part of a larger project built exclusively for the iPad, and has been sized to meet this spec.*
 
 **Demo:** [http://projects.angiesiudevworks.com/reactscoreboard/](http://projects.angiesiudevworks.com/reactscoreboard/)
 
