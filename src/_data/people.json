@@ -204,7 +204,7 @@
 		"name": "ianescqus",
 		"type": "elf",
 		"age": 31,
-		"img": "http://placehold.it/400x400?text=ianescqus",
+		"img": "http://placehold.it/400x400?text=Ianescqus",
 		"factoids": ["Factoid A", "Factoid B"],
 		"primary_factors": {
 			"intelligence": {
@@ -254,7 +254,7 @@
 		"name": "jayon",
 		"type": "elf",
 		"age": 26,
-		"img": "http://placehold.it/400x400?text=jayon",
+		"img": "http://placehold.it/400x400?text=Jayon",
 		"factoids": ["Factoid A", "Factoid B"],
 		"primary_factors": {
 			"intelligence": {
