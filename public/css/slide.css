@@ -1,0 +1,592 @@
+* {
+	font-family: Arial, sans-serif;
+	box-sizing: border-box;
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+html {
+	background: #fff;
+}
+
+body {
+	
+}
+
+.main header h1 {
+	font-size: 25px;
+}
+
+/************* RESETTERS **************/
+#wrapper {
+	position: relative;
+	background: #efefef;
+	width: 1024px;
+	height: 768px;
+	border: 1px solid black;
+	overflow: hidden;
+}
+
+.top-container {
+    height: calc(100% - 62px);
+}
+
+nav.top-nav {
+	z-index: 25;
+}
+
+.main header {
+	position: relative;
+	z-index: 20;
+}
+
+/** shorten the right rail to only the height of the logo **/
+section.right-rail {
+	height: 92px;
+}
+
+section.right-rail a.home {
+	margin-bottom: 0;
+}
+
+footer, nav.bottom-nav {
+	height: 62px;
+}
+
+/************* APP STYLES *************/
+#app {
+	position: absolute;
+	width: 100%;
+	height: 646px;
+	top: 60px;
+	left: 0;
+	/*background: rgba(255,255,0,0.25);*/
+}
+
+#app section .main {
+	position: relative;
+	width: calc(100% - 90px);
+	height: 612px;
+	left: 45px;
+	/*background: rgba(255,255,0,0.25);*/
+}
+
+#app section .main > div:not(.person-wall) {
+	opacity: 1;
+	animation: fadein;
+	animation-duration: 400ms;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#app section .main .content {
+	position: absolute;
+	width: 100%;
+	height: calc(100% - 30px);
+	top: 10px;
+}
+
+.main .person-wall {
+	position: absolute;	
+	top: 29px;
+	left: -1px;
+	width: 940px;
+}
+
+.person-wall .row {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+.person-wall div.row-bottom {
+	margin-bottom: 0;
+}
+
+.person-wall .row a {
+	position: relative;
+	display: block;
+	width: 138px;
+	height: 184px;
+	top: 0;
+	opacity: 1;
+
+}
+.person-wall.show-photos .row a {
+	opacity: 0.6;
+}
+
+.person-wall.show-photos .profile-picture-btn {
+	pointer-events: none;
+}
+				/***************** select elf ******************/
+.person-wall.show-photos.show-elf .profile-picture-btn[type="dwarf"] {
+	opacity: 0;
+	transition: opacity 400ms;
+}
+
+.person-wall.show-photos.show-elf .profile-picture-btn[type="elf"] {
+	animation-duration: 800ms;
+	animation-fill-mode: forwards;
+}
+
+.person-wall.show-photos.show-elf .row-top .profile-picture-btn[type="elf"]:first-of-type {
+	animation-name: animateElf1;
+}
+
+@keyframes animateElf1 {
+	0% { top: 0; }
+	100% { top: 126px; }
+}
+
+.person-wall.show-photos.show-elf .row-top .profile-picture-btn[type="elf"]:nth-of-type(2) {
+	animation-name: animateElf2;
+}
+
+@keyframes animateElf2 {
+	0% { top: 0; left: 0; }
+	50% { top: 0; left: 160px;}
+	100% { top: 126px; left: 160px;}
+}
+
+.person-wall.show-photos.show-elf .row-top .profile-picture-btn[type="elf"]:nth-of-type(3) {
+	animation-name: animateElf3;
+}
+
+@keyframes animateElf3 {
+	0% { top: 0; left: 0; }
+	50% { top: 0; left: 480px;}
+	100% { top: 126px; left: 480px;}
+}
+
+.person-wall.show-photos.show-elf .row-bottom .profile-picture-btn[type="elf"] {
+	animation-name: animateElfBottom;
+}
+
+@keyframes animateElfBottom {
+	0% { top: 0; }
+	100% { top: -258px; }
+}
+
+.person-wall.show-photos.show-elf.stay .row .profile-picture-btn[type="elf"] {
+	animation: none;
+}
+
+.person-wall.show-photos.show-elf.stay .row-top .profile-picture-btn[type="elf"]:first-of-type {
+	top: 126px;
+} 
+
+.person-wall.show-photos.show-elf.stay .row-top .profile-picture-btn[type="elf"]:nth-of-type(2) {
+	top: 126px; 
+	left: 160px;
+} 
+
+.person-wall.show-photos.show-elf.stay .row-top .profile-picture-btn[type="elf"]:nth-of-type(3) {
+	top: 126px; 
+	left: 480px;
+}
+
+.person-wall.show-photos.show-elf .row-bottom .profile-picture-btn[type="elf"] {
+	top: -258px;
+}
+
+					/***************** select VS ******************/
+.person-wall.show-photos.show-dwarf .profile-picture-btn[type="elf"] {
+	opacity: 0;
+	transition: opacity 400ms;
+}
+
+.person-wall.show-photos.show-dwarf .profile-picture-btn[type="dwarf"] {
+	animation-duration: 800ms;
+	animation-fill-mode: forwards;
+}
+
+.person-wall.show-photos.show-dwarf .row-top .profile-picture-btn[type="dwarf"] {
+	animation-name: animateDwarfTop;
+}
+
+@keyframes animateDwarfTop {
+	0% { top: 0; left: 0;}
+	50% { top: 0; left: -245px; }
+	100% { top: 12px; left: -245px; }
+}
+
+.person-wall.show-photos.show-dwarf .row-middle .profile-picture-btn[type="dwarf"]:first-of-type {
+	animation-name: animateDwarfMid1;
+}
+
+@keyframes animateDwarfMid1 {
+	0% { top: 0; left: 0;}
+	50% { top: -180px; left: 0; }
+	100% { top: -180px; left: 73px; }
+}
+
+.person-wall.show-photos.show-dwarf .row-middle .profile-picture-btn[type="dwarf"]:nth-of-type(2) {
+	animation-name: animateDwarfMid2;
+}
+
+@keyframes animateDwarfMid2 {
+	0% { top: 0; left: 0; }
+	50% { top: -180px; left: 0; }
+	100% { top: -180px; left: -86px; }
+}
+
+.person-wall.show-photos.show-dwarf .row-bottom .profile-picture-btn[type="dwarf"]:first-of-type {
+	animation-name: animateDwarfBottom1;
+}
+
+@keyframes animateDwarfBottom1 {
+	0% { top: 0; left: 0; }
+	50% { top: -175px; left: 0; }
+	100% { top: -175px; left: 236px; }
+}
+
+.person-wall.show-photos.show-dwarf .row-bottom .profile-picture-btn[type="dwarf"]:nth-of-type(3) {
+	animation-name: animateDwarfBottom2;
+}
+
+@keyframes animateDwarfBottom2 {
+	0% { top: 0; left: 0; }
+	50% { top: -175px; left: 0; }
+	100% { top: -175px; left: 74px; }
+}
+
+.person-wall.show-photos.show-dwarf .row-bottom .profile-picture-btn[type="dwarf"]:last-of-type {
+	animation-name: animateDwarfBottom3;
+}
+
+@keyframes animateDwarfBottom3 {
+	0% { top: 0; left: 0; }
+	50% { top: -175px; left: 0; }
+	100% { top: -175px; left: -245px; }
+}
+
+.person-wall.show-photos.show-dwarf.stay .row .profile-picture-btn[type="dwarf"] {
+	animation: none;
+}
+
+.person-wall.show-photos.show-dwarf.stay .row-top .profile-picture-btn[type="dwarf"] {
+	top: 12px; 
+	left: -245px;
+}
+
+.person-wall.show-photos.show-dwarf.stay .row-middle .profile-picture-btn[type="dwarf"]:first-of-type {
+	top: -180px; 
+	left: 73px;
+}
+
+.person-wall.show-photos.show-dwarf.stay .row-middle .profile-picture-btn[type="dwarf"]:nth-of-type(2) {
+	top: -180px; 
+	left: -86px;
+}
+
+.person-wall.show-photos.show-dwarf.stay .row-bottom .profile-picture-btn[type="dwarf"]:first-of-type {
+	top: -175px; 
+	left: 236px;
+}
+
+.person-wall.show-photos.show-dwarf.stay .row-bottom .profile-picture-btn[type="dwarf"]:nth-of-type(3) {
+	top: -175px; 
+	left: 74px;
+}
+
+.person-wall.show-photos.show-dwarf.stay .row-bottom .profile-picture-btn[type="dwarf"]:last-of-type {
+	top: -175px; 
+	left: -245px;
+}
+				/***************** END select TN/VS animation ******************/
+
+.person-wall .row a img {
+	width: 100%;
+	height: 100%;
+}
+
+.person-wall .row-middle a:last-of-type{
+	left: auto;
+	right: 0;
+}
+
+
+.main .factors-container {
+	position: absolute;
+	width: 700px;
+	left: 50%;
+	top: 40px;
+    transform: translate(-50%,0);
+	/*background: rgba(255,0,0,0.25);*/
+}
+
+.main .factors-container .factor-btn {
+	display: block;
+	border: 1px solid #cccccc;
+	text-align: center;
+	font-weight: bold;
+    background: rgba(243,243,243,0.88);
+	box-shadow: 2px 4px 16px rgba(0,0,0,0.25);
+}
+
+.main .factors-container .factor .factor-btn.active {
+	background: rgba(21,190,240,0.88) !important;
+	color: #fff;
+}
+
+.main .factors-container .primary-btn {
+	width: 470px;
+    height: 64px;
+	margin: 0 auto;
+    font-size: 28px;
+    line-height: 64px;
+    cursor: pointer;
+}
+
+.main button.submit {
+	position: absolute;
+    display: block;
+    left: 50%;
+	width: 232px;
+	height: 50px;
+	background: transparent;
+	border: 2px solid #52bbe7;
+	border-radius: 4px;
+	font-size: 20px;
+	font-weight: bold;
+    transform: translate(-50%,0);
+    cursor: pointer;
+}
+
+.main button.submit[disabled] {
+	color: #999;
+	border-color: #ccc;
+	opacity: 0.8;
+}
+
+/*** home view ***/
+#home .content .big-buttons {
+	position: absolute;
+	width: 622px;
+	height: 174px;
+	left: calc(138px + 20px);
+	top: 226px;
+	color: #333;
+}
+
+#home .content .big-btn {
+	position: absolute;
+	width: 300px;
+	background: #ffffff;
+	top: 50%;
+	transform: translate(0,-50%);
+	cursor: pointer;
+}
+
+#home .content .big-btn:first-of-type {
+	left: 0;
+}
+
+#home .content .big-btn:nth-of-type(2) {
+	right: 0;
+}
+
+#home .content .big-btn .btn-name {
+	display: block;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	text-align: center;
+	font-weight: bold;
+	transform: translate(0,-50%);
+}
+
+#home .content .path-btn {
+	height: 174px;
+	border: 3px solid #40b4e5;
+	border-radius: 8px;
+}
+
+#home .content .path-btn .path-name {
+	font-size: 20px;
+}
+
+#home .content .type-btn {
+    height: 142px;
+    border: 1px solid #cccccc;
+    box-shadow: 8px 8px 10px #cccccc;
+}
+
+#home .content .type-btn .type-name {
+	font-size: 28px;
+}
+
+/*** primary factors view ***/
+#primary-factors .main .factors-container {
+	height: 375px;
+}
+
+#primary-factors .main .factors-container .factor {
+	height: 75px;
+}
+
+#primary-factors .main button.submit {
+    top: 430px;
+}
+
+/*** secondary factors view ***/
+#secondary-factors .main .factors-container {
+	height: 405px;
+	/*background: rgba(255,255,0,0.5);*/
+}
+
+#secondary-factors .main button.submit {
+	top: 450px;
+}
+
+#secondary-factors .main .factors-container .factor {
+	height: 135px;
+}
+
+#secondary-factors .main .factors-container .factor .subfactors {
+	position: relative;
+	height: 62px;
+	top: 10px;
+	/*background: rgba(0,0,255,0.5);*/
+}
+
+#secondary-factors .main .factors-container .factor .subfactors .subfactor-btn {
+	position: absolute;
+	width: 226px;
+	height: 46px;
+	top: 0;
+	font-size: 18px;
+	line-height: 46px;
+	background: rgba(255,255,255,0.88);
+}
+
+#secondary-factors .main .factors-container .factor .subfactors > span.subfactor-btn:first-of-type {
+	position: relative;
+}
+
+#secondary-factors .main .factors-container .factor .subfactors > span.subfactor-btn:nth-of-type(2) {
+	left: 50%;
+	transform: translate(-50%,0);
+}
+
+#secondary-factors .main .factors-container .factor .subfactors > span.subfactor-btn:nth-of-type(3) {
+	right: 0;
+}
+
+/*** person outcomes view ***/
+#app #person-outcome .main .content {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 780px;
+	left: 50%;
+	padding-top: 40px;
+	transform: translate(-50%,0);
+}
+
+#person-outcome .main .outcome .profile-picture {
+	width: 216px;
+}
+
+#person-outcome .main .outcome h3 {
+	color: #da1a32;
+	font-size: 23px;
+	font-weight: bold;
+}
+
+#person-outcome .footnotes {
+	position: absolute;
+    font-size: 11px;
+    bottom: -20px;
+    padding: 10px 45px 35px 45px;
+    z-index: 30;
+}
+
+#person-outcome + .sprinkle-isi {
+	padding-bottom: 50px;
+}
+
+/*** quotes view ***/
+#quotes .main .content .quotes-container {
+	position: absolute;
+	width: 462px;
+}
+
+#quotes .main .content .quotes-container-elf {
+	left: -10px;
+	top: 100px;
+}
+
+#quotes .main .content .quotes-container-dwarf {
+	right: -10px;
+	top: 30px;
+}
+
+#quotes .main .content .quote-container {
+	position: relative;
+	display: block;
+	width: 482px;
+	height: 158px;
+	margin-bottom: 4px;
+	padding: 0;
+	overflow: hidden;
+}
+
+#quotes .main .content .quote-btn {
+	position: relative;
+	display: block;
+	width: 462px;
+	height: 138px;
+	border: 1px solid #ccc;
+	background: rgba(255,255,255,0.88);
+	box-shadow: 2px 4px 16px rgba(0,0,0,0.25);
+	animation-name: dropin;
+	animation-duration: 600ms;
+	cursor: pointer;
+}
+
+@keyframes dropin {
+	0% {
+		top: -50px;
+		opacity: 0;
+	}
+	100% {
+		top: 0;
+		opacity: 1;
+	}
+}
+
+#quotes .main .content .quote-btn p {
+	position: absolute;
+	top: 50%;
+	margin: 0;
+	padding: 0 8px;
+	font-size: 24px;
+	text-align: center;
+	transform: translate(0,-50%);
+}
+
+#quotes .main .content .quote-btn .highlight {
+	font-weight: bold;
+}
+
+#quotes .main .content .quote-btn[type="elf"] .highlight {
+	color: #15bef0;
+}
+
+#quotes .main .content .quote-btn[type="dwarf"] .highlight {
+	color: #cf0a2c;
+}

@@ -1,0 +1,47 @@
+[
+	{
+		"name": "intelligence",
+		"buttonCopy": "Intelligence",
+		"subfactors": [
+			{"field": "iq", "buttonCopy": "IQ"},
+			{"field": "memory", "buttonCopy": "Memory"},
+			{"field": "creativity", "buttonCopy": "Creativity"}
+		]
+	},
+	{
+		"name": "strength",
+		"buttonCopy": "Strength",
+		"subfactors": [
+			{"field": "arms", "buttonCopy": "Arm strength"},
+			{"field": "core", "buttonCopy": "Core stability"},
+			{"field": "diet_exercise", "buttonCopy": "Diet and exercise"}
+		]
+	},
+	{
+		"name": "defense",
+		"buttonCopy": "Defense",
+		"subfactors": [
+			{"field": "resistance", "buttonCopy": "Reistance"},
+			{"field": "tolerance", "buttonCopy": "Pain tolerance"},
+			{"field": "endurance", "buttonCopy": "Endurance"}
+		]
+	},
+	{
+		"name": "speed",
+		"buttonCopy": "Speed",
+		"subfactors": [
+			{"field": "legs_strength", "buttonCopy": "Legs strength"},
+			{"field": "legs_movement", "buttonCopy": "Manueverability"},
+			{"field": "shoes", "buttonCopy": "Shoes"}
+		]
+	},
+	{
+		"name": "magic",
+		"buttonCopy": "Magical Abilities",
+		"subfactors": [
+			{"field": "power", "buttonCopy": "Power boost"},
+			{"field": "fly", "buttonCopy": "Fly"},
+			{"field": "summon", "buttonCopy": "Summon familiars"}
+		]
+	}
+]
