@@ -5,12 +5,7 @@ import people_json from '../_data/people.json';
 
 import ProfilePictureButton from '../_components/ProfilePictureButton';
 
-function toTitleCase(word) {
-	const first = word[0].toUpperCase();
-	const theRest = word.slice(1);
-
-	return first + theRest;
-}
+import { toTitleCase } from '../_helpers';
 
 class PersonOutcome extends React.Component {
 	getFactorsOutcomes = () => {

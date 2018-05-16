@@ -1,5 +1,4 @@
 * {
-	font-family: Arial, sans-serif;
 	box-sizing: border-box;
 	padding: 0;
 	border: 0;
@@ -11,10 +10,22 @@ html {
 }
 
 body {
-	
+	font-family: 'Roboto', Arial, sans-serif;
+	color: #fff;
+}
+
+span.refresher {
+	display: block;
+	margin-bottom: -20px;
+	color: #40b4e5;
+	text-align: right;
+	text-decoration: underline;
+	padding: 10px 40px;
+	cursor: pointer;
 }
 
 .main header h1 {
+	font-family: 'Raleway', Arial, sans-serif;
 	font-size: 25px;
 }
 
@@ -31,7 +42,7 @@ footer a:visited {
 /************* RESETTERS **************/
 #wrapper {
 	position: relative;
-	background: #efefef;
+	background: #333;
 	width: 1024px;
 	height: 768px;
 	border: 1px solid black;
@@ -62,6 +73,21 @@ section.right-rail a.home {
 
 footer, nav.bottom-nav {
 	height: 62px;
+}
+
+.profile-picture {
+	position: relative;
+	background: rgba(255,255,255,0.8);
+	color: #000;
+}
+
+.profile-picture span {
+	display: block;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	text-align: center;
+	transform: translate(0,-50%);
 }
 
 /************* APP STYLES *************/
@@ -131,8 +157,13 @@ footer, nav.bottom-nav {
 	height: 184px;
 	top: 0;
 	opacity: 1;
-
 }
+
+.person-wall .row a .profile-picture {
+	width: 100%;
+	height: 100%;
+}
+
 .person-wall.show-photos .row a {
 	opacity: 0.6;
 }
@@ -140,6 +171,8 @@ footer, nav.bottom-nav {
 .person-wall.show-photos .profile-picture-btn {
 	pointer-events: none;
 }
+
+
 				/***************** select elf ******************/
 .person-wall.show-photos.show-elf .profile-picture-btn[type="dwarf"] {
 	opacity: 0;
@@ -211,6 +244,10 @@ footer, nav.bottom-nav {
 	top: -258px;
 }
 
+.person-wall.show-photos.show-elf .profile-picture-btn[type="elf"] .profile-picture {
+	color: #40b4e5;
+}
+
 					/***************** select VS ******************/
 .person-wall.show-photos.show-dwarf .profile-picture-btn[type="elf"] {
 	opacity: 0;
@@ -218,6 +255,7 @@ footer, nav.bottom-nav {
 }
 
 .person-wall.show-photos.show-dwarf .profile-picture-btn[type="dwarf"] {
+	color: #cf0a2c;
 	animation-duration: 800ms;
 	animation-fill-mode: forwards;
 }
@@ -315,6 +353,11 @@ footer, nav.bottom-nav {
 	top: -175px; 
 	left: -245px;
 }
+
+.person-wall.show-photos.show-dwarf .profile-picture-btn[type="dwarf"] .profile-picture {
+	color: #cf0a2c;
+}
+
 				/***************** END select TN/VS animation ******************/
 
 .person-wall .row a img {
@@ -357,6 +400,7 @@ footer, nav.bottom-nav {
 	margin: 0 auto;
     font-size: 28px;
     line-height: 64px;
+    color: #000;
     cursor: pointer;
 }
 
@@ -366,7 +410,7 @@ footer, nav.bottom-nav {
     left: 50%;
 	width: 232px;
 	height: 50px;
-	background: transparent;
+	background: rgba(255,255,255,0.9);
 	border: 2px solid #52bbe7;
 	border-radius: 4px;
 	font-size: 20px;
@@ -394,7 +438,7 @@ footer, nav.bottom-nav {
 #home .content .big-btn {
 	position: absolute;
 	width: 300px;
-	background: #ffffff;
+	/*background: #ffffff;*/
 	top: 50%;
 	transform: translate(0,-50%);
 	cursor: pointer;
@@ -420,8 +464,11 @@ footer, nav.bottom-nav {
 
 #home .content .path-btn {
 	height: 174px;
-	border: 3px solid #40b4e5;
+	background: #6cc1e2;
+	border: 6px solid transparent;
 	border-radius: 8px;
+	box-shadow: 0 0 8px #ccc;
+	color: #fff;
 }
 
 #home .content .path-btn .path-name {
@@ -431,7 +478,17 @@ footer, nav.bottom-nav {
 #home .content .type-btn {
     height: 142px;
     border: 1px solid #cccccc;
-    box-shadow: 8px 8px 10px #cccccc;
+    background: #ffffff;
+}
+
+#home .content .type-btn[type="elf"] {
+	border: 3px solid #40b4e5;
+	box-shadow: 8px 8px 10px rgba(64,180,229,0.5);
+}
+
+#home .content .type-btn[type="dwarf"] {
+	border: 3px solid #cf0a2c;
+	box-shadow: 8px 8px 10px rgba(239,76,76,0.5);
 }
 
 #home .content .type-btn .type-name {
@@ -477,6 +534,7 @@ footer, nav.bottom-nav {
 	width: 226px;
 	height: 46px;
 	top: 0;
+	color: #000;
 	font-size: 18px;
 	line-height: 46px;
 	background: rgba(255,255,255,0.88);
@@ -509,12 +567,17 @@ footer, nav.bottom-nav {
 
 #person-outcome .main .outcome .profile-picture {
 	width: 216px;
+	height: 300px;
 }
 
 #person-outcome .main .outcome h3 {
 	color: #da1a32;
 	font-size: 23px;
 	font-weight: bold;
+}
+
+#person-outcome .main .outcome .list {
+	margin-left: 20px;
 }
 
 #person-outcome .footnotes {
@@ -563,6 +626,7 @@ footer, nav.bottom-nav {
 	border: 1px solid #ccc;
 	background: rgba(255,255,255,0.88);
 	box-shadow: 2px 4px 16px rgba(0,0,0,0.25);
+	color: #000;
 	animation-name: dropin;
 	animation-duration: 600ms;
 	cursor: pointer;

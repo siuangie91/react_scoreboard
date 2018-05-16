@@ -61,10 +61,10 @@ class Home extends React.Component {
 			case "persontype":
 				bigButtons =
 					<Fragment>
-						<PersonTypeButton typename="Elf" 
+						<PersonTypeButton typename="elf" 
 							clickHandler={this.chooseElf} />
 
-						<PersonTypeButton typename="Dwarf"
+						<PersonTypeButton typename="dwarf"
 							clickHandler={this.chooseDwarf} />	
 					</Fragment>
 				break;
