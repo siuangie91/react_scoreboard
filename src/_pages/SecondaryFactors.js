@@ -52,32 +52,25 @@ class SecondaryFactors extends React.Component {
 		// console.log('submitted', this.state.selectedSubfactors);
 		// console.log('Primary factors', this.props.selectedFactors);
 		
-		let subfactors = this.state.selectedSubfactors;
-		// console.log('subfactors', subfactors);
-		let primaryFactors = this.props.selectedFactors;
-		// console.log('primaryFactors', primaryFactors);
+		const subfactors = this.state.selectedSubfactors;
+		const primaryFactors = this.props.selectedFactors;
 
-		let fullCollection = [];
-		//for each primary factor, find the subfactors whose categories match and store it in its subfactors array property
-		for(var primaryFactor of primaryFactors) {
-			// console.log('primaryFactor', primaryFactor);
+		const fullCollection = primaryFactors
+			.map(primaryFactor => {
+				const correspondingSubfactors = subfactors.filter(item => item.category === primaryFactor.name); // find the corresponding subfactors
+				// console.log('correspondingSubfactors', correspondingSubfactors);
 
-			const correspondingSubfactors = subfactors.filter(item => item.category === primaryFactor.name); // find the corresponding subfactors
-			// console.log('correspondingSubfactors', correspondingSubfactors);
+				primaryFactor.subfactors = [...primaryFactor.subfactors, ...correspondingSubfactors]; // store them in the primaryFactor's subfactors property
 
-			primaryFactor.subfactors = [...primaryFactor.subfactors, ...correspondingSubfactors]; // store them in the primaryFactor's subfactors property
-
-			// console.log('primaryFactor updated', primaryFactor);
-			fullCollection.push(primaryFactor); // push into fullCollection array
-		}
-		
+				return primaryFactor;
+			});
 		// console.log('fullCollection', fullCollection);
+
 		this.props.clearFactors();
 		this.props.setFactors(fullCollection); // store the fullCollection in Redux store
 
 		// set appPage to patient outcome
 		this.props.setPage("personOutcome", this.props.personType, this.props.path);
-
 	}
 
 	render() {
