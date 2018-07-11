@@ -21,7 +21,7 @@
 		"name": "defense",
 		"buttonCopy": "Defense",
 		"subfactors": [
-			{"field": "resistance", "buttonCopy": "Reistance"},
+			{"field": "resistance", "buttonCopy": "Resistance"},
 			{"field": "tolerance", "buttonCopy": "Pain tolerance"},
 			{"field": "endurance", "buttonCopy": "Endurance"}
 		]
