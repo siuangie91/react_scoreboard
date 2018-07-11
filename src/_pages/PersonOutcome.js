@@ -11,57 +11,43 @@ class PersonOutcome extends React.Component {
 	getFactorsOutcomes = () => {
 		const selectedPersons = this.props.selectedPersons;
 		const selectedFactors = this.props.selectedFactors;
-		// console.log('selectedPersons', selectedPersons);
-		// console.log('selectedFactors', selectedFactors);
 
-		// for each selectedPerson, add up their factor values, and store the person in a new array with their id, name, and total score
-		const personsSummed = selectedPersons.map(person => {
-			// console.log('----------------');
-			// console.log('current person:', person.name);
+		const theThreePersons = selectedPersons
+			.map(person => { // for each selectedPerson, add up their factor values, and store the person in a new array with their id, name, and total score
+				// console.log('----------------');
+				// console.log('current person:', person.name);
 
-			let totals = [];
-			for(var factor of selectedFactors) {
-				// console.log('current factor', factor.name);
-				// console.log('current factor\'s subfactors', factor.subfactors);
+				const grandTotal = selectedFactors
+					.map(factor => {
+						// get the primary factor value
+						const primaryFactorValue = person.primary_factors[factor.name].value;
 
-				// get the primary factor value
-				const primaryFactorValue = person.primary_factors[factor.name].value; 
-				// console.log('person', person.name, 'value', primaryFactorValue);
+						const subfactorTotal = factor.subfactors
+							 .map(subfactor => person.primary_factors[factor.name].subfactors[subfactor.name])
+							 .reduce((subfactorTotal, currentSubfactorValue) => subfactorTotal + currentSubfactorValue);
+						// console.log('subfactor total', subfactorTotal);
 
-				// get the sum of values of the subfactors of the current primary factor
-				let subfactorTotal = 0; // init subfactor sum
-				for(var subfactor of factor.subfactors) {
-					// console.log('subfactor', subfactor.name);
+						const factorTotal = primaryFactorValue + subfactorTotal;
+						return factorTotal;
+					})
+					.reduce((grandTotal, currentFactorTotal) => grandTotal + currentFactorTotal);
 
-					// for each subfactor, grab the value of that subfactor from the current person
-					const thisSubfactorValue = person.primary_factors[factor.name].subfactors[subfactor.name];
-					// console.log('thisSubfactorValue', thisSubfactorValue);
+				return {id: +person.id, name: person.name, grandTotal: grandTotal}; // return object literal with person id, name, and grand total
+			})
+			.sort((a, b) => {
+				if(+a.grandTotal === +b.grandTotal) { // if they are equal, sort by alphabetical order (add "+" to coerce as number)
+					const aName = a.name.toLowerCase(); // in case there's any case mismatch
+					const bName = b.name.toLowerCase();
 
-					subfactorTotal += thisSubfactorValue;
+					if(aName < bName) return -1;
+					else if (aName > bName) return 1;
+					return 0;
 				}
-				// console.log('subfactor total', subfactorTotal);
-
-				const factorTotal = primaryFactorValue + subfactorTotal;
-				// console.log(`factorTotal for ${factor.name} = ${primaryFactorValue} + ${subfactorTotal} = `, factorTotal);
-
-				totals.push(factorTotal); // push into totals array
-			}
-			// console.log('totals', totals);
-
-			const grandTotal = totals.reduce((total, num) => total + num);
-			// console.log('grandTotal', grandTotal);
-
-			return {id: +person.id, name: person.name, grandTotal: grandTotal}; // return object literal with person id, name, and grand total
-		}); 
-		// console.log('personsSummed', personsSummed);
-
-		const sortedPersonsSummed = personsSummed.sort((a, b) => { // sort in descending order
-			return +b.grandTotal - +a.grandTotal; // add a "+" in the beginning to make sure the id is parsed as a num, not a string
-		});
-		// console.log('sortedPersonsSummed', sortedPersonsSummed);
-
-		const theThreePersons = sortedPersonsSummed.slice(0,3);
-		// console.log('theThreePersons', theThreePersons);
+				else { // if not equal, sort by descending order
+					return +b.grandTotal - +a.grandTotal;
+				}
+			})
+			.slice(0,3); // get only the first 3
 
 		return theThreePersons;
 	}
