@@ -29,8 +29,6 @@ class Home extends React.Component {
 	}
 
 	chooseMindset = () => {
-		// console.log('chose Mindset path!');
-
 		// set appPage to quotes (personType is empty)
 		this.props.setPage("quotes", "", "mindset");
 	}
@@ -53,8 +51,6 @@ class Home extends React.Component {
 
 
 	render() {
-		// console.log('Home.props', this.props);
-
 		let bigButtons;
 
 		switch(this.state.page) {

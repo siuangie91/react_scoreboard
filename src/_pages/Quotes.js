@@ -9,8 +9,6 @@ import QuoteButton from '../_components/QuoteButton';
 
 class Quotes extends React.Component {
 	selectQuote = (target) => {
-		// console.log('selected speakers', target.getAttribute('speakers'));
-
 		// get the patients by id
 		const selectedSpeakersArr = target.getAttribute('speakers').split(','); // since attr is a string 
 		for(let speaker of selectedSpeakersArr) {
@@ -22,8 +20,6 @@ class Quotes extends React.Component {
 	}
 
 	render() {
-		// console.log('quotes_json', quotes_json);
-
 		return (
 			<section id="quotes">
 				<div className="main">

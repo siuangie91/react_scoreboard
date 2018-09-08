@@ -7,15 +7,8 @@ import PrimaryFactors from './PrimaryFactors';
 import SecondaryFactors from './SecondaryFactors';
 import PersonOutcome from './PersonOutcome';
 
-// check whether object is empty
-function isEmpty(obj) {
-	// console.log('calling isEmpty');
-    for(var key in obj) {
-        if(obj.hasOwnProperty(key))
-            return false;
-    }
-    return true;
-}
+import { isEmpty } from '../_helpers';
+
 
 class App extends React.Component {
 	constructor() {
@@ -30,11 +23,6 @@ class App extends React.Component {
 	}
 
 	static getDerivedStateFromProps(nextProps, prevState) {
-		// console.log('App got new props!');
-		// console.log('nextProps', nextProps);
-		// console.log('prevState', prevState);
-
-
 		// manage app view
 		let newAppView = (!isEmpty(nextProps.appView)) ? 
 			// use object spread operator to overwrite this.state.view properties
@@ -48,11 +36,6 @@ class App extends React.Component {
 	}
 
 	render() {
-		// console.log('App.props', this.props);
-		// console.log('App.state', this.state);
-
-		// console.log('app.state.view', this.state.view)
-
 		let theView;
 
 		switch(this.state.view.viewName) {
@@ -81,7 +64,6 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-	// console.log('state', state);
 	return { // return data to become part of the props in the component
 		appView: state.appView
 	};

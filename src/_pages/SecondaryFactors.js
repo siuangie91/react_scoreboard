@@ -49,22 +49,17 @@ class SecondaryFactors extends React.Component {
 	}
 
 	handleSubmit = () => {
-		// console.log('submitted', this.state.selectedSubfactors);
-		// console.log('Primary factors', this.props.selectedFactors);
-		
 		const subfactors = this.state.selectedSubfactors;
 		const primaryFactors = this.props.selectedFactors;
 
 		const fullCollection = primaryFactors
 			.map(primaryFactor => {
 				const correspondingSubfactors = subfactors.filter(item => item.category === primaryFactor.name); // find the corresponding subfactors
-				// console.log('correspondingSubfactors', correspondingSubfactors);
 
 				primaryFactor.subfactors = [...primaryFactor.subfactors, ...correspondingSubfactors]; // store them in the primaryFactor's subfactors property
 
 				return primaryFactor;
 			});
-		// console.log('fullCollection', fullCollection);
 
 		this.props.clearFactors();
 		this.props.setFactors(fullCollection); // store the fullCollection in Redux store
@@ -74,7 +69,6 @@ class SecondaryFactors extends React.Component {
 	}
 
 	render() {
-		// console.log('selectedSubfactors', this.state);
 
 		return (
 			<section id="secondary-factors">

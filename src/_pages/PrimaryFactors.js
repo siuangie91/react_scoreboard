@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import factors_json from '../_data/factors.json';
@@ -24,7 +23,6 @@ class PrimaryFactors extends React.Component {
 	}
 
 	selectFactor = (target) => {
-		// console.log('tapped!', target.getAttribute("name"));
 		const theFactor = target;
 
 		if(!target.classList.contains('active')) { // if tapped btn is not already active
@@ -54,7 +52,6 @@ class PrimaryFactors extends React.Component {
 	}
 
 	handleSubmit = () => {
-		// console.log('submitted these factors:', this.state.selectedFactors);
 		this.props.setFactors(this.state.selectedFactors); // set factors in redux store
 
 		// set appPage to secondary factors 
@@ -62,10 +59,7 @@ class PrimaryFactors extends React.Component {
 	}
 
 	render() {
-		// console.log('PrimaryFactors.props', this.props);
-		// console.log('PrimaryFactors.state', this.state);
-
-		return(
+		return (
 			<section id="primary-factors">
 				<div className="main">
 					<PersonWall classes={`show-photos show-${this.props.personType}`}/>

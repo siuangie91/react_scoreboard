@@ -3,73 +3,81 @@ import { connect } from 'react-redux';
 
 import ProfilePictureButton from '../_components/ProfilePictureButton';
 
+import people_json from '../_data/people.json';
+
 class PersonWall extends React.Component {
 	render() {
-		// index in persons.json array = patient id
-		const persons = this.props.persons;
+		const persons = {};
+		people_json.forEach(json => {
+			persons[json.name] = null;
+		});
 
-		return (
-			<div className={`person-wall ${this.props.classes}`}> {/*manually place the profile pics*/}
+		this.props.persons.forEach(person => {
+			persons[person.name] = person;
+		});
+
+		return ( /*manually place the profile pics (this was the requirement in the original ask for this proj)*/
+			<div className={`person-wall ${this.props.classes}`}>
 				<div className="row row-top">
 					<ProfilePictureButton 
-						type={persons[12].type}
-						name={persons[12].name} />
+						type={persons.targaryan.type}
+						name={persons.targaryan.name} />
 
 					<ProfilePictureButton 
-						type={persons[10].type}
-						name={persons[10].name} />
+						type={persons.rhydol.type}
+						name={persons.rhydol.name} />
 
 					<ProfilePictureButton
-						type={persons[4].type}
-						name={persons[4].name} />
+						type={persons.ianescqus.type}
+						name={persons.ianescqus.name} />
 
 					<ProfilePictureButton 
-						type={persons[3].type}
-						name={persons[3].name} />
+						type={persons.gravit.type}
+						name={persons.gravit.name} />
 
 					<ProfilePictureButton 
-						type={persons[2].type}
-						name={persons[2].name} />
+						type={persons.edthartus.type}
+						name={persons.edthartus.name} />
 					
 					<ProfilePictureButton 
-						type={persons[7].type}
-						name={persons[7].name} />
+						type={persons.lysandria.type}
+						name={persons.lysandria.name} />
 				</div>
 
 				<div className="row row-middle">
 					<ProfilePictureButton
-						type={persons[6].type}
-						name={persons[6].name} />
+						type={persons.jhangor.type}
+						name={persons.jhangor.name} />
 
 					<ProfilePictureButton
-						type={persons[1].type}
-						name={persons[1].name} />
+						type={persons.braddick.type}
+						name={persons.braddick.name} />
 				</div>
                                                                                                                          
 				<div className="row row-bottom">
 					<ProfilePictureButton 
-						type={persons[8].type}
-						name={persons[8].name} />
+						type={persons.moraudin.type}
+						name={persons.moraudin.name} />
 					
 					<ProfilePictureButton 
-						type={persons[9].type}
-						name={persons[9].name} />
+						type={persons.maye.type}
+						name={persons.maye.name} />
 					
 					<ProfilePictureButton 
-						type={persons[0].type}
-						name={persons[0].name} />
+						type={persons.anahga.type}
+						name={persons.anahga.name} />
 					
 					<ProfilePictureButton 
-						type={persons[5].type}
-						name={persons[5].name} />
+						type={persons.jayon.type}
+						name={persons.jayon.name} />
 					
 					<ProfilePictureButton 
-						type={persons[11].type}
-						name={persons[11].name} />
+						type={persons.samgamgee.type}
+						name={persons.samgamgee.name} />
 					
 					<ProfilePictureButton 
-						type={persons[13].type}
-						name={persons[13].name} />
+						type={persons.vaporeon.type}
+						name={persons.vaporeon.name} />
 				</div>
 			</div>
 		);

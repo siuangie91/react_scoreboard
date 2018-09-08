@@ -4,3 +4,12 @@ export function toTitleCase(word) {
 
 	return first + theRest;
 }
+
+// check whether object is empty
+export function isEmpty(obj) {
+  for(var key in obj) {
+    if(obj.hasOwnProperty(key))
+      return false;
+  }
+  return true;
+}
