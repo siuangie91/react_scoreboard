@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 
 import ProfilePictureButton from '../_components/ProfilePictureButton';
 
-import people_json from '../_data/people.json';
+// import people_json from '../_data/people.json';
 
 class PersonWall extends React.Component {
 	render() {
 		const persons = {};
-		people_json.forEach(json => {
-			persons[json.name] = null;
-		});
+		// people_json.forEach(json => {
+		// 	persons[json.name] = null;
+		// });
 
 		this.props.persons.forEach(person => {
 			persons[person.name] = person;
