@@ -24,7 +24,7 @@ class PersonOutcome extends React.Component {
 
 						const subfactorTotal = factor.subfactors
 							 .map(subfactor => person.primary_factors[factor.name].subfactors[subfactor.name])
-							 .reduce((subfactorTotal, currentSubfactorValue) => subfactorTotal + currentSubfactorValue);
+							 .reduce((subfactorTotal, currentSubfactorValue) => subfactorTotal + currentSubfactorValue, 0); // init value at zero in case no subfactors chosen
 						// console.log('subfactor total', subfactorTotal);
 
 						const factorTotal = primaryFactorValue + subfactorTotal;
